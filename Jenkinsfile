@@ -17,9 +17,10 @@ podTemplate(label: pod.label,
                     git clone https://github.com/AngryBytes/jenkins-build-everything-strategy-plugin.git
                     cd jenkins-build-everything-strategy-plugin
                     mvn install -Dmaven.test.skip=true
+                    ls ./target/
                 """
 
-                archiveArtifacts allowEmptyArchive: true, artifacts: "$WORKSPACE/jenkins-build-everything-strategy-plugin/target/build-everything-strategy.hpi"
+                archiveArtifacts allowEmptyArchive: true, artifacts: "./target/build-everything-strategy.hpi"
 
                 if (env.TAG_NAME && env.TAG_NAME != "null" && env.BRANCH_NAME == env.TAG_NAME)
                 {
