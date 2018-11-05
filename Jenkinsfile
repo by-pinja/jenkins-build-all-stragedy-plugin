@@ -5,7 +5,7 @@ podTemplate(label: pod.label,
     containerTemplate(name: 'maven', image: 'maven:3.5.3', ttyEnabled: true, command: '/bin/sh -c', args: 'cat')
   ]
 ) {
-    def project = 'fortum-gateway-embedded'
+    def project = 'jenkins-build-all-stragedy-plugin'
 
     node(pod.label) {
         stage('Checkout') {
