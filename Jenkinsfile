@@ -14,8 +14,6 @@ podTemplate(label: pod.label,
         stage('Build') {
             container("maven") {
                 sh """
-                    git clone https://github.com/AngryBytes/jenkins-build-everything-strategy-plugin.git
-                    cd jenkins-build-everything-strategy-plugin
                     mvn install -Dmaven.test.skip=true
                     cp ./target/build-everything-strategy.hpi $WORKSPACE/build-everything-strategy.hpi
                 """
